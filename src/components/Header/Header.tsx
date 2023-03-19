@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.scss';
 
 export default class Header extends Component {
   render() {
     return (
-      <header>
-        <nav>
-          <ul>
+      <header className="header">
+        <nav className="nav__bar">
+          <ul className="nav__list">
             <li>
               <Link className="backward__link" to="/about-us">
                 About Us
