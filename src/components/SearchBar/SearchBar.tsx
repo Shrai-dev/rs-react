@@ -8,23 +8,19 @@ export default class SearchBar extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
-  state = {
-    searchValue: '',
-  };
-  searchData!: string | null;
+  state = JSON.parse(localStorage.getItem('formData') || '{}');
 
   componentDidMount(): void {
-    this.searchData = JSON.parse(localStorage.getItem('formData') || '{}');
-    if (localStorage.getItem('formData')) {
-      this.setState(this.searchData);
-    } else {
-      this.setState({
-        searchValue: '',
-      });
+    if (localStorage.getItem('formData') !== null) {
+      this.setState(this.state);
     }
   }
 
-  componentDidUpdate(prevProps: Record<string, never>, prevState: { [key: string]: string }) {
+  componentDidUpdate(prevProps: Record<string, never>, prevState: { [key: string]: string }): void {
+    this.setLocalStorage();
+  }
+
+  componentWillUnmount(): void {
     this.setLocalStorage();
   }
 
@@ -33,12 +29,12 @@ export default class SearchBar extends Component {
     this.setLocalStorage();
   }
 
-  handleFormSubmit(e: { preventDefault: () => void }) {
+  handleFormSubmit(e: { preventDefault: () => void }): void {
     e.preventDefault();
     this.setLocalStorage();
   }
 
-  setLocalStorage() {
+  setLocalStorage(): void {
     localStorage.setItem('formData', JSON.stringify(this.state));
   }
 
