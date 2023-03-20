@@ -13,9 +13,9 @@ export default class SearchBar extends Component {
   };
   searchData!: string | null;
 
-  componentDidMount() {
-    this.searchData = JSON.parse(localStorage.getItem('searchValue') || '{}');
-    if (localStorage.getItem('searchValue')) {
+  componentDidMount(): void {
+    this.searchData = JSON.parse(localStorage.getItem('formData') || '{}');
+    if (localStorage.getItem('formData')) {
       this.setState(this.searchData);
     } else {
       this.setState({
@@ -24,13 +24,22 @@ export default class SearchBar extends Component {
     }
   }
 
+  componentDidUpdate(prevProps: Record<string, never>, prevState: { [key: string]: string }) {
+    this.setLocalStorage();
+  }
+
   handleChange(e: ChangeEvent<HTMLInputElement>) {
     this.setState({ searchValue: e.target.value });
+    this.setLocalStorage();
   }
 
   handleFormSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    localStorage.setItem('searchValue', JSON.stringify(this.state));
+    this.setLocalStorage();
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('formData', JSON.stringify(this.state));
   }
 
   render() {
