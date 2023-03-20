@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
     }
   }
 
-  componentDidUpdate(prevProps: Record<string, never>, prevState: { [key: string]: string }): void {
+  componentDidUpdate(): void {
     this.setLocalStorage();
   }
 
