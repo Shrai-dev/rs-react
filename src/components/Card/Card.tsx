@@ -8,9 +8,9 @@ export default class Card extends Component<CardData> {
   }
   render() {
     return (
-      <div className="card__item">
+      <div className="card__item" data-testid="card-container">
         <div className="card__item-img">
-          <img className="card__img" src={this.props.images[0]} alt="" />
+          <img className="card__img" src={this.props.images[0]} alt={this.props.title} />
         </div>
         <h3 className="card__item-title">{this.props.title}</h3>
         <h4 className="card__item-subtitle">Brand: {this.props.brand}</h4>

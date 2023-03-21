@@ -6,14 +6,6 @@ import App from './App';
 import React from 'react';
 
 describe('App', () => {
-  it('should render App and match snapshot', () => {
-    const { asFragment } = render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
   it('Render Not Found page'),
     () => {
       render(

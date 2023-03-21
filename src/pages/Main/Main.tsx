@@ -14,7 +14,7 @@ export default class Main extends Component {
           brand={item.brand}
           category={item.category}
           description={item.description}
-          discountPercentage={0}
+          discountPercentage={item.discountPercentage}
           id={item.id}
           images={item.images}
           price={item.price}
