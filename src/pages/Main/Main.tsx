@@ -27,7 +27,9 @@ export default class Main extends Component {
     return (
       <main className="main">
         <SearchBar />
-        <div className="cards__wrapper">{cards}</div>
+        <div className="cards__wrapper" data-testid="cards-wrapper">
+          {cards}
+        </div>
       </main>
     );
   }
