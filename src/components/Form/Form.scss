@@ -1,0 +1,43 @@
+.form__container,
+.form__wrapper,
+.form__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  margin-top: 20px;
+  padding: 30px;
+  border: 2px solid #6b50e9;
+  border-radius: 10px;
+}
+
+.form__data-input {
+  margin-left: 5px;
+  padding: 5px;
+  height: 25px;
+  border: 1px solid #9d94ff;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+    border: 1px solid #9d94ff;
+    border-radius: 5px;
+  }
+}
+
+.error {
+  height: 18px;
+  color: #ff0000;
+  font-size: 14px;
+  align-self: self-start;
+  padding-bottom: 10px;
+}
+
+.form__cards {
+  width: 80vw;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 15px;
+}
