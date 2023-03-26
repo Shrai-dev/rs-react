@@ -13,6 +13,13 @@ export default class FormCard extends Component<FormData> {
           {this.props.firstName} {this.props.lastName}
         </h4>
         <p className="form-card__text">Birthday: {this.props.birthday}</p>
+        <p className="form-card__text">Country: {this.props.country}</p>
+        <p className="form-card__text">
+          Agree to subscribe to newsletters: {this.props.promo ? 'Yes' : 'No'}
+        </p>
+        <p className="form-card__text">Gender: {this.props.gender}</p>
+
+        <p className="form-card__text">Path to file: {this.props.file}</p>
       </div>
     );
   }
