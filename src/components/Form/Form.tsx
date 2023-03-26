@@ -207,7 +207,9 @@ export default class Form extends Component<Record<string, never>, FormState> {
                   data-testid="last-name"
                 />
               </label>
-              <p className="error">{this.state.errors.lastName}</p>
+              <p className="error" data-testid="last-name-error">
+                {this.state.errors.lastName}
+              </p>
               <label className="form__data-label" htmlFor="birthday">
                 Date of birth:
                 <input
@@ -218,7 +220,9 @@ export default class Form extends Component<Record<string, never>, FormState> {
                   data-testid="birthday"
                 />
               </label>
-              <p className="error">{this.state.errors.birthday}</p>
+              <p className="error" data-testid="birthday-error">
+                {this.state.errors.birthday}
+              </p>
               <label className="form__data-label" htmlFor="country">
                 Country:
                 <select
@@ -234,7 +238,9 @@ export default class Form extends Component<Record<string, never>, FormState> {
                   <option value="Great Britain">Great Britain</option>
                 </select>
               </label>
-              <p className="error">{this.state.errors.country}</p>
+              <p className="error" data-testid="country-error">
+                {this.state.errors.country}
+              </p>
               <label className="form__data-label" htmlFor="promo-notifications">
                 <input
                   className="form__data-checkbox"
@@ -245,10 +251,13 @@ export default class Form extends Component<Record<string, never>, FormState> {
                 />
                 I agree to subscribe to newsletters
               </label>
-              <p className="error">{this.state.errors.promo}</p>
+              <p className="error" data-testid="promo-error">
+                {this.state.errors.promo}
+              </p>
             </div>
             <div className="form__data">
               <label className="form__data-label" htmlFor="gender">
+                Gender:
                 <input
                   className="form__data-radio"
                   type="radio"
@@ -269,9 +278,13 @@ export default class Form extends Component<Record<string, never>, FormState> {
                 <span className="form__data-span female">Female</span>
               </label>
             </div>
-            <p className="error">{this.state.errors.gender}</p>
+            <p className="error" data-testid="gender-error">
+              {this.state.errors.gender}
+            </p>
             <input type="file" name="fileUpload" ref={this.fileInput} data-testid="file-upload" />
-            <p className="error">{this.state.errors.file}</p>
+            <p className="error" data-testid="file-upload-error">
+              {this.state.errors.file}
+            </p>
             <button className="form__submit-btn" data-testid="submit-btn">
               Submit
             </button>
