@@ -26,12 +26,48 @@
   }
 }
 
+.form__data-select {
+  margin-left: 10px;
+  height: 25px;
+  border: 1px solid #9d94ff;
+  border-radius: 5px;
+}
+
+.form__data-checkbox {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.form__data-radio {
+  margin-right: 5px;
+}
+
+.male {
+  margin-right: 10px;
+}
+
+.form__submit-btn {
+  width: 150px;
+  height: 35px;
+  background: linear-gradient(90deg, #9d94ff 0%, #6b50e9 94.5%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background: linear-gradient(90deg, #6b50e9 0%, #9d94ff 94.5%);
+  }
+}
+
 .error {
+  margin: 3px 0 10px;
+  padding-bottom: 10px;
   height: 18px;
   color: #ff0000;
   font-size: 14px;
   align-self: self-start;
-  padding-bottom: 10px;
 }
 
 .form__cards {
