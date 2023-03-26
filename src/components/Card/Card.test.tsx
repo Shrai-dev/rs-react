@@ -23,19 +23,7 @@ describe('Card', () => {
     () => {
       render(
         <MemoryRouter>
-          <Card
-            title={mockData.title}
-            brand={mockData.brand}
-            category={mockData.category}
-            description={mockData.description}
-            discountPercentage={mockData.discountPercentage}
-            id={mockData.id}
-            images={mockData.images}
-            price={mockData.price}
-            rating={mockData.rating}
-            stock={mockData.stock}
-            thumbnail={mockData.thumbnail}
-          />
+          <Card card={mockData} />
         </MemoryRouter>
       );
 
@@ -46,19 +34,7 @@ describe('Card', () => {
     () => {
       render(
         <MemoryRouter>
-          <Card
-            title={mockData.title}
-            brand={mockData.brand}
-            category={mockData.category}
-            description={mockData.description}
-            discountPercentage={mockData.discountPercentage}
-            id={mockData.id}
-            images={mockData.images}
-            price={mockData.price}
-            rating={mockData.rating}
-            stock={mockData.stock}
-            thumbnail={mockData.thumbnail}
-          />
+          <Card card={mockData} />
         </MemoryRouter>
       );
 
