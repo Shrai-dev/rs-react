@@ -6,7 +6,7 @@ import App from './App';
 import React from 'react';
 
 describe('App', () => {
-  it('Render Not Found page'),
+  it('Render Not Found page',
     () => {
       render(
         <MemoryRouter initialEntries={['/this-route-does-not-exist']}>
@@ -18,5 +18,5 @@ describe('App', () => {
           level: 2,
         })
       ).toHaveTextContent('Page not found');
-    };
+    })
 });
