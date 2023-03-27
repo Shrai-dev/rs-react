@@ -14,7 +14,7 @@ const mockData = {
 };
 
 describe('FormCard', () => {
-  it('Render Form', () => {
+  it('Render FormCard', () => {
     render(
       <FormCard
         firstName={mockData.firstName}
@@ -27,19 +27,103 @@ describe('FormCard', () => {
       />
     );
     const formCard = screen.getByTestId('formCard');
-    const formCardName = screen.getByTestId('formCard-name');
-    const formCardBirthday = screen.getByTestId('formCard-birthday');
-    const formCardCountry = screen.getByTestId('formCard-country');
-    const formCardPromo = screen.getByTestId('formCard-promo');
-    const formCardGender = screen.getByTestId('formCard-gender');
-    const formCardFile = screen.getByTestId('formCard-file');
 
     expect(formCard).toBeInTheDocument();
+  });
+  it('Render FormCard with provided first and last names', () => {
+    render(
+      <FormCard
+        firstName={mockData.firstName}
+        lastName={mockData.lastName}
+        birthday={mockData.birthday}
+        country={mockData.country}
+        promo={true}
+        gender={mockData.gender}
+        file={mockData.file}
+      />
+    );
+    const formCardName = screen.getByTestId('formCard-name');
+
     expect(formCardName).toHaveTextContent(`${mockData.firstName} ${mockData.lastName}`);
+  });
+  it('Render FormCard with provided birthday', () => {
+    render(
+      <FormCard
+        firstName={mockData.firstName}
+        lastName={mockData.lastName}
+        birthday={mockData.birthday}
+        country={mockData.country}
+        promo={true}
+        gender={mockData.gender}
+        file={mockData.file}
+      />
+    );
+    const formCardBirthday = screen.getByTestId('formCard-birthday');
+
     expect(formCardBirthday).toHaveTextContent(`${mockData.birthday}`);
+  });
+  it('Render FormCard with provided country', () => {
+    render(
+      <FormCard
+        firstName={mockData.firstName}
+        lastName={mockData.lastName}
+        birthday={mockData.birthday}
+        country={mockData.country}
+        promo={true}
+        gender={mockData.gender}
+        file={mockData.file}
+      />
+    );
+    const formCardCountry = screen.getByTestId('formCard-country');
+
     expect(formCardCountry).toHaveTextContent(`${mockData.country}`);
-    expect(formCardPromo).toHaveTextContent(`Yes`);
+  });
+  it('Render FormCard with provided promo info', () => {
+    render(
+      <FormCard
+        firstName={mockData.firstName}
+        lastName={mockData.lastName}
+        birthday={mockData.birthday}
+        country={mockData.country}
+        promo={true}
+        gender={mockData.gender}
+        file={mockData.file}
+      />
+    );
+    const formCardPromo = screen.getByTestId('formCard-promo');
+
+    expect(formCardPromo).toHaveTextContent('Yes');
+  });
+  it('Render FormCard with provided gender', () => {
+    render(
+      <FormCard
+        firstName={mockData.firstName}
+        lastName={mockData.lastName}
+        birthday={mockData.birthday}
+        country={mockData.country}
+        promo={true}
+        gender={mockData.gender}
+        file={mockData.file}
+      />
+    );
+    const formCardGender = screen.getByTestId('formCard-gender');
+
     expect(formCardGender).toHaveTextContent(`${mockData.gender}`);
+  });
+  it('Render FormCard with provided file path', () => {
+    render(
+      <FormCard
+        firstName={mockData.firstName}
+        lastName={mockData.lastName}
+        birthday={mockData.birthday}
+        country={mockData.country}
+        promo={true}
+        gender={mockData.gender}
+        file={mockData.file}
+      />
+    );
+    const formCardFile = screen.getByTestId('formCard-file');
+
     expect(formCardFile).toHaveTextContent(`${mockData.file}`);
   });
 });
