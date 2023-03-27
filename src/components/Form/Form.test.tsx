@@ -4,16 +4,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import Form from './Form';
 import userEvent from '@testing-library/user-event';
 
-const mockData = {
-  firstName: 'Jane',
-  lastName: 'Doe',
-  birthday: '2004-05-06',
-  country: 'Ukraine',
-  promo: 'Yes',
-  gender: 'Female',
-  file: 'photo.png',
-};
-
 describe('Form', () => {
   it('Render Form', () => {
     render(<Form />);
