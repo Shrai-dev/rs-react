@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import FormCard from '../../FormCard/FormCard';
+import FormCard from '../FormCard/FormCard';
 import { FormData, FormState, ValidationErrors } from '../../utils/types';
 import './Form.scss';
 
