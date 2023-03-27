@@ -191,6 +191,7 @@ export default class Form extends Component<Record<string, never>, FormState> {
                   type="text"
                   name="first-name"
                   ref={this.firstNameInput}
+                  aria-label="first-name"
                   data-testid="first-name"
                 />
               </label>

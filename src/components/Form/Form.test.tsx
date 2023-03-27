@@ -1,7 +1,6 @@
 import React from 'react';
 import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Form from './Form';
 
 const mockData = {
@@ -66,5 +65,11 @@ describe('Form', () => {
     const submitButton = screen.getByTestId('submit-btn');
 
     expect(submitButton).toBeInTheDocument();
+  });
+  it('Render Form elements: first name input', () => {
+    render(<Form />);
+    const firstName = screen.getByLabelText('first-name');
+    fireEvent.change(firstName, { target: { value: 'abc' } });
+    expect(screen.getByDisplayValue('abc')).toBeInTheDocument();
   });
 });
