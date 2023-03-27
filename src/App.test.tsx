@@ -6,6 +6,26 @@ import App from './App';
 import React from 'react';
 
 describe('App', () => {
+  it('Render Main page', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByRole('main')).toBeInTheDocument();
+  });
+  it('Render Main page', () => {
+    render(
+      <MemoryRouter initialEntries={['/about-us']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+      })
+    ).toHaveTextContent('About Us');
+  });
   it('Render Not Found page', () => {
     render(
       <MemoryRouter initialEntries={['/this-route-does-not-exist']}>
