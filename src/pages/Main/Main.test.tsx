@@ -19,4 +19,9 @@ describe('Main', () => {
 
     expect(screen.getByTestId('cards-wrapper')).toBeInTheDocument();
   });
+  it('Render search input', () => {
+    render(<Main />);
+
+    expect(screen.getByLabelText('search')).toBeInTheDocument();
+  });
 });
