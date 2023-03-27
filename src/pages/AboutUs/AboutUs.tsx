@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { FC } from 'react';
 
-export default class AboutUs extends Component {
-  render() {
-    return (
-      <div>
-        <h2>About Us</h2>
-      </div>
-    );
-  }
-}
+const AboutUs: FC = () => {
+  return (
+    <div>
+      <h2>About Us</h2>
+    </div>
+  );
+};
+
+export default AboutUs;
