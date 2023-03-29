@@ -30,3 +30,7 @@ export interface FormData {
 export interface ValidationErrors {
   [x: string]: string;
 }
+
+export interface CardProps {
+  card: CardData;
+}
