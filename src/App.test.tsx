@@ -14,7 +14,7 @@ describe('App', () => {
     );
     expect(screen.getByRole('main')).toBeInTheDocument();
   });
-  it('Render Main page', () => {
+  it('Render About Us page', () => {
     render(
       <MemoryRouter initialEntries={['/about-us']}>
         <App />
@@ -25,6 +25,16 @@ describe('App', () => {
         level: 2,
       })
     ).toHaveTextContent('About Us');
+  });
+  it('Render Form page', () => {
+    render(
+      <MemoryRouter initialEntries={['/form']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    const form = screen.getByTestId('react-form');
+    expect(form).toBeInTheDocument();
   });
   it('Render Not Found page', () => {
     render(
