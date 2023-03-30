@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .tsx",
     "test": "vitest",
-    "test:coverage": "vitest --coverage"
+    "coverage": "vitest --coverage"
   },
   "dependencies": {
     "@testing-library/user-event": "^14.4.3",
