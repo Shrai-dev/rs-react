@@ -1,0 +1,12 @@
+.main {
+  margin: 0 8vw;
+  background: #f8f8f8;
+}
+
+.cards__wrapper {
+  width: 1280px;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+}
