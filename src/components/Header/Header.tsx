@@ -9,13 +9,18 @@ export default class Header extends Component {
         <nav className="nav__bar">
           <ul className="nav__list">
             <li>
+              <Link className="backward__link" to="/">
+                Main
+              </Link>
+            </li>
+            <li>
               <Link className="backward__link" to="/about-us">
                 About Us
               </Link>
             </li>
             <li>
-              <Link className="backward__link" to="/main">
-                Main
+              <Link className="backward__link" to="/form">
+                Form
               </Link>
             </li>
           </ul>

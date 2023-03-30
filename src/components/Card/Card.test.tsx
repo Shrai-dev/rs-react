@@ -19,49 +19,23 @@ const mockData = {
 };
 
 describe('Card', () => {
-  it('Render Card title'),
-    () => {
-      render(
-        <MemoryRouter>
-          <Card
-            title={mockData.title}
-            brand={mockData.brand}
-            category={mockData.category}
-            description={mockData.description}
-            discountPercentage={mockData.discountPercentage}
-            id={mockData.id}
-            images={mockData.images}
-            price={mockData.price}
-            rating={mockData.rating}
-            stock={mockData.stock}
-            thumbnail={mockData.thumbnail}
-          />
-        </MemoryRouter>
-      );
+  it('Render Card title', () => {
+    render(
+      <MemoryRouter>
+        <Card card={mockData} />
+      </MemoryRouter>
+    );
 
-      const cardTitle = screen.getByText(/Samsung Universe 9/i);
-      expect(cardTitle).toBeInTheDocument();
-    };
-  it('Render Card container'),
-    () => {
-      render(
-        <MemoryRouter>
-          <Card
-            title={mockData.title}
-            brand={mockData.brand}
-            category={mockData.category}
-            description={mockData.description}
-            discountPercentage={mockData.discountPercentage}
-            id={mockData.id}
-            images={mockData.images}
-            price={mockData.price}
-            rating={mockData.rating}
-            stock={mockData.stock}
-            thumbnail={mockData.thumbnail}
-          />
-        </MemoryRouter>
-      );
+    const cardTitle = screen.getByText(/Samsung Universe 9/i);
+    expect(cardTitle).toBeInTheDocument();
+  });
+  it('Render Card container', () => {
+    render(
+      <MemoryRouter>
+        <Card card={mockData} />
+      </MemoryRouter>
+    );
 
-      expect(screen.getByTestId('card-container')).toBeInTheDocument();
-    };
+    expect(screen.getByTestId('card-container')).toBeInTheDocument();
+  });
 });

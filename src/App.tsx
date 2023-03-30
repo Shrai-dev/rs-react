@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Main from './pages/Main/Main';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Error from './pages/Error/Error';
+import Form from './components/Form/Form';
 
 class App extends Component {
   render() {
@@ -11,10 +12,9 @@ class App extends Component {
       <div className="app__container">
         <Header />
         <Routes>
-          <Route path="/" element={<Main />}>
-            <Route path="main" element={<Main />} />
-          </Route>
+          <Route path="/" element={<Main />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route path="form" element={<Form />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

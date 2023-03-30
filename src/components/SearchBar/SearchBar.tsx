@@ -46,7 +46,7 @@ export default class SearchBar extends Component {
             className="search__input"
             type="search"
             name="searchValue"
-            id=""
+            aria-label="search"
             value={this.state.searchValue}
             onChange={(e: ChangeEvent<HTMLInputElement>) => this.handleChange(e)}
           />
