@@ -24,7 +24,7 @@ export interface FormData {
   country: string;
   promo: boolean;
   gender: string;
-  file: string;
+  file: MediaSource;
 }
 
 export interface ValidationErrors {

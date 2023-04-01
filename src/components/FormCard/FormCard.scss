@@ -5,6 +5,16 @@
   border-radius: 10px;
 }
 
+.form-card__image {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.form-card__title {
+  margin-top: 10px;
+}
+
 .form-card__text {
   margin-top: 5px;
 }
