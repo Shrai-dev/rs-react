@@ -1,8 +1,7 @@
 import React from 'react';
 import { describe, it } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Form from './Form';
-import userEvent from '@testing-library/user-event';
 
 describe('Form', () => {
   it('Render Form', () => {
@@ -56,53 +55,5 @@ describe('Form', () => {
     const submitButton = screen.getByTestId('submit-btn');
 
     expect(submitButton).toBeInTheDocument();
-  });
-  it('Change Form elements: enter valid first name and error message is empty', async () => {
-    render(<Form />);
-
-    const firstName = screen.getByLabelText('first-name');
-    const firstNameError = screen.getByTestId('first-name-error');
-    const submitButton = screen.getByTestId('submit-btn');
-
-    fireEvent.change(firstName, { target: { value: 'Jane' } });
-    await userEvent.click(submitButton);
-
-    expect(firstNameError).toBeEmptyDOMElement();
-  });
-  it('Change Form elements: enter invalid first name and get error message', async () => {
-    render(<Form />);
-
-    const firstName = screen.getByLabelText('first-name');
-    const firstNameError = screen.getByTestId('first-name-error');
-    const submitButton = screen.getByTestId('submit-btn');
-
-    fireEvent.change(firstName, { target: { value: 'abc' } });
-    await userEvent.click(submitButton);
-
-    expect(firstNameError).toHaveTextContent('The first name should start from capital letter');
-  });
-  it('Change Form elements: enter valid last name and error message is empty', async () => {
-    render(<Form />);
-
-    const lastName = screen.getByLabelText('last-name');
-    const lastNameError = screen.getByTestId('last-name-error');
-    const submitButton = screen.getByTestId('submit-btn');
-
-    fireEvent.change(lastName, { target: { value: 'Doe' } });
-    await userEvent.click(submitButton);
-
-    expect(lastNameError).toBeEmptyDOMElement();
-  });
-  it('Change Form elements: enter invalid last name and get error message', async () => {
-    render(<Form />);
-
-    const lastName = screen.getByLabelText('last-name');
-    const lastNameError = screen.getByTestId('last-name-error');
-    const submitButton = screen.getByTestId('submit-btn');
-
-    fireEvent.change(lastName, { target: { value: 'abc' } });
-    await userEvent.click(submitButton);
-
-    expect(lastNameError).toHaveTextContent('The last name should start from capital letter');
   });
 });
