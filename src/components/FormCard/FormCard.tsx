@@ -5,11 +5,6 @@ import './FormCard.scss';
 const FormCard: FC<FormData> = (props) => {
   return (
     <div className="form-card__wrapper" data-testid="formCard">
-      <img
-        className="form-card__image"
-        src={URL.createObjectURL(props.file)}
-        alt={props.firstName}
-      />
       <h4 className="form-card__title" data-testid="formCard-name">
         {props.firstName} {props.lastName}
       </h4>
