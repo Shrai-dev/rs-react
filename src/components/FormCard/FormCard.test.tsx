@@ -122,8 +122,7 @@ describe('FormCard', () => {
         file={mockData.file}
       />
     );
-    const formCardFile = screen.getByTestId('formCard-file');
 
-    expect(formCardFile).toHaveTextContent(`${mockData.file}`);
+    expect(screen.getByRole('img')).toHaveAttribute('src', `${mockData.file}`);
   });
 });
