@@ -24,6 +24,16 @@ export interface FormData {
   country: string;
   promo: boolean;
   gender: string;
+  file: FileList;
+}
+
+export interface FormCardData {
+  firstName: string;
+  lastName: string;
+  birthday: string;
+  country: string;
+  promo: boolean;
+  gender: string;
   file: string;
 }
 

@@ -1,36 +1,36 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import FormCard from '../FormCard/FormCard';
-import { FormData } from '../../utils/types';
+import { FormCardData, FormData } from '../../utils/types';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import './Form.scss';
 
 const Form: FC = () => {
-  const [formDataList, setFormDataList] = useState<FormData[]>([]);
+  const [formDataList, setFormDataList] = useState<FormCardData[]>([]);
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormData>({
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
   });
 
-  useEffect(() => {
-    reset({
-      firstName: '',
-      lastName: '',
-      birthday: '',
-      country: '',
-      promo: false,
-      gender: '',
-      file: '',
-    });
-  }, [formDataList, reset]);
-
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    setFormDataList((prevState) => [...prevState, data]);
-    alert('Thank you! The data has been saved');
+    const validFormData: FormCardData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      birthday: data.birthday,
+      country: data.country,
+      promo: data.promo,
+      gender: data.gender,
+      file: URL.createObjectURL(data.file[0]),
+    };
+    if (isValid) {
+      setFormDataList((prevState) => [...prevState, validFormData]);
+      alert('Thank you! The data has been saved');
+    }
+    reset();
   };
 
   const formCards = formDataList.map((card, idx) => {
@@ -165,10 +165,12 @@ const Form: FC = () => {
             </p>
           )}
           <input
+            className="form__data-file"
             type="file"
             id="fileUpload"
             {...register('file', { required: 'The file is required' })}
             data-testid="file-upload"
+            accept=".png, .jpg, .jpeg"
           />
           {errors.file && (
             <p className="error" data-testid="file-error">
