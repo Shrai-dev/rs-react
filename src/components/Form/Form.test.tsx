@@ -1,7 +1,8 @@
 import React from 'react';
 import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Form from './Form';
+import userEvent from '@testing-library/user-event';
 
 describe('Form', () => {
   it('Render Form', () => {
@@ -55,5 +56,67 @@ describe('Form', () => {
     const submitButton = screen.getByTestId('submit-btn');
 
     expect(submitButton).toBeInTheDocument();
+  });
+  it('Change Form elements: enter valid first name and error message is empty', async () => {
+    render(<Form />);
+
+    const firstName = screen.getByLabelText('first-name');
+    const submitButton = screen.getByTestId('submit-btn');
+
+    fireEvent.input(firstName, { target: { value: 'Jane' } });
+    await userEvent.click(submitButton);
+
+    expect(screen.queryByTestId('first-name-error')).not.toBeInTheDocument();
+  });
+  it('Change Form elements: enter invalid first name and get error message', async () => {
+    render(<Form />);
+
+    const firstName = screen.getByLabelText('first-name');
+    const submitButton = screen.getByTestId('submit-btn');
+
+    fireEvent.input(firstName, { target: { value: 'abc' } });
+    await userEvent.click(submitButton);
+
+    expect(screen.getByTestId('first-name-error')).toHaveTextContent(
+      'The first name should start from capital letter'
+    );
+
+    fireEvent.input(firstName, { target: { value: 'Ja' } });
+    await userEvent.click(submitButton);
+
+    expect(screen.getByTestId('first-name-error')).toHaveTextContent(
+      'The first name should be longer than 3 letters'
+    );
+  });
+  it('Change Form elements: enter valid last name and error message is empty', async () => {
+    render(<Form />);
+
+    const lastName = screen.getByLabelText('last-name');
+    const submitButton = screen.getByTestId('submit-btn');
+
+    fireEvent.input(lastName, { target: { value: 'Black' } });
+    await userEvent.click(submitButton);
+
+    expect(screen.queryByTestId('last-name-error')).not.toBeInTheDocument();
+  });
+  it('Change Form elements: enter invalid last name and get error message', async () => {
+    render(<Form />);
+
+    const lastName = screen.getByLabelText('last-name');
+    const submitButton = screen.getByTestId('submit-btn');
+
+    fireEvent.input(lastName, { target: { value: 'abc' } });
+    await userEvent.click(submitButton);
+
+    expect(screen.getByTestId('last-name-error')).toHaveTextContent(
+      'The last name should start from capital letter'
+    );
+
+    fireEvent.input(lastName, { target: { value: 'Do' } });
+    await userEvent.click(submitButton);
+
+    expect(screen.getByTestId('last-name-error')).toHaveTextContent(
+      'The last name should be longer than 3 letters'
+    );
   });
 });

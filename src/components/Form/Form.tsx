@@ -59,7 +59,17 @@ const Form: FC = () => {
                 className="form__data-input"
                 type="text"
                 id="first-name"
-                {...register('firstName', { required: 'The first name is required', minLength: 3 })}
+                {...register('firstName', {
+                  required: 'The first name is required',
+                  minLength: {
+                    value: 3,
+                    message: 'The first name should be longer than 3 letters',
+                  },
+                  pattern: {
+                    value: /^[A-Z][a-z]{3}/,
+                    message: 'The first name should start from capital letter',
+                  },
+                })}
                 aria-label="first-name"
                 data-testid="first-name"
               />
@@ -75,7 +85,17 @@ const Form: FC = () => {
                 className="form__data-input"
                 type="text"
                 id="last-name"
-                {...register('lastName', { required: 'The last name is required', minLength: 3 })}
+                {...register('lastName', {
+                  required: 'The last name is required',
+                  minLength: {
+                    value: 3,
+                    message: 'The last name should be longer than 3 letters',
+                  },
+                  pattern: {
+                    value: /^[A-Z][a-z]{3}/,
+                    message: 'The last name should start from capital letter',
+                  },
+                })}
                 aria-label="last-name"
                 data-testid="last-name"
               />
