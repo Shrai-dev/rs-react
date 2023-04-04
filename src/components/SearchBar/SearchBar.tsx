@@ -1,27 +1,27 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 import './SearchBar.scss';
 
 const SearchBar: FC = () => {
   const [searchQuery, setSearchQuery] = useState(localStorage.getItem('searchQuery') || '');
+  const searchValueRef = useRef('');
 
   useEffect(() => {
-    if (localStorage.getItem('formData') !== null) {
-      setSearchQuery(searchQuery);
-    }
+    searchValueRef.current = searchQuery;
   }, [searchQuery]);
 
-  const handleFormSubmit = (e: { preventDefault: () => void }): void => {
-    e.preventDefault();
-    setLocalStorage();
-  };
+  useEffect(() => {
+    return () => {
+      setLocalStorage(searchValueRef.current);
+    };
+  }, []);
 
-  const setLocalStorage = (): void => {
-    localStorage.setItem('searchQuery', searchQuery);
+  const setLocalStorage = (value: string): void => {
+    localStorage.setItem('searchQuery', value);
   };
 
   return (
     <div className="search__container" data-testid="search-container">
-      <form onSubmit={handleFormSubmit}>
+      <form>
         <input
           className="search__input"
           type="search"
