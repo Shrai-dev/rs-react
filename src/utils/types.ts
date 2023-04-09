@@ -1,17 +1,3 @@
-export type CardData = {
-  brand: string;
-  category: string;
-  description: string;
-  discountPercentage: number;
-  id: number;
-  images: string[];
-  price: number;
-  rating: number;
-  stock: number;
-  thumbnail: string;
-  title: string;
-};
-
 export type FormState = {
   errors: { [key: string]: string };
   isFormDataValid: boolean;
@@ -41,6 +27,23 @@ export interface ValidationErrors {
   [x: string]: string;
 }
 
-export interface CardProps {
-  card: CardData;
+export interface MovieData {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface MoviesProps {
+  movies: MovieData[];
 }
