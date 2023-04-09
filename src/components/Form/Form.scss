@@ -15,6 +15,7 @@
 
 .form__data-input {
   margin-left: 5px;
+  margin-bottom: 10px;
   padding: 5px;
   height: 25px;
   border: 1px solid #9d94ff;
@@ -28,6 +29,7 @@
 
 .form__data-select {
   margin-left: 10px;
+  margin-bottom: 10px;
   height: 25px;
   border: 1px solid #9d94ff;
   border-radius: 5px;
@@ -35,6 +37,7 @@
 
 .form__data-checkbox {
   margin-top: 10px;
+  margin-bottom: 10px;
   margin-right: 5px;
 }
 
@@ -44,6 +47,10 @@
 
 .male {
   margin-right: 10px;
+}
+
+.form__data-file {
+  margin: 10px 0;
 }
 
 .form__submit-btn {
