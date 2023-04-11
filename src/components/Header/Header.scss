@@ -1,6 +1,7 @@
 .header {
-  height: 40px;
-  background-color: #f8f8f8;
+  height: 50px;
+  background: radial-gradient(696.2% 730.65% at 47.6% 26.27%, #181a19 0%, #24282b 68.62%);
+  box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.25);
 }
 
 .nav__bar {
@@ -9,13 +10,23 @@
 }
 
 .nav__list {
+  padding: 15px 0;
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.backward__link {
-  text-decoration: none;
+.nav__list-link {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.6;
+  }
 }
