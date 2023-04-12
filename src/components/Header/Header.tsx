@@ -6,6 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <header className="header">
+        <div className="logo"></div>
         <nav className="nav__bar">
           <ul className="nav__list">
             <li className="nav__list-item">
