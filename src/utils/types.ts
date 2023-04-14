@@ -3,6 +3,11 @@ export type FormState = {
   isFormDataValid: boolean;
 };
 
+export type Genre = {
+  id: number;
+  name: string;
+};
+
 export interface FormData {
   firstName: string;
   lastName: string;
