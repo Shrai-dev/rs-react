@@ -1,12 +1,6 @@
 import React, { FC } from 'react';
-import { MovieData } from '../../utils/types';
+import { SearchBarProps } from '../../utils/types';
 import './SearchBar.scss';
-
-interface SearchBarProps {
-  handleInputValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  searchMovies: (searchString: string) => Promise<MovieData[] | void>;
-  searchQuery: string;
-}
 
 const SearchBar: FC<SearchBarProps> = ({ handleInputValue, searchMovies, searchQuery }) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {

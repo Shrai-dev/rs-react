@@ -52,3 +52,9 @@ export interface MovieData {
 export interface MoviesProps {
   movies: MovieData[];
 }
+
+export interface SearchBarProps {
+  handleInputValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  searchMovies: (searchString: string) => Promise<MovieData[] | void>;
+  searchQuery: string;
+}
