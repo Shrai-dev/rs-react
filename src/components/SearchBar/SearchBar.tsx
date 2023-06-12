@@ -1,40 +1,35 @@
-import React, { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
+import React, { FC } from 'react';
+import { SearchBarProps } from '../../utils/types';
 import './SearchBar.scss';
 
-const SearchBar: FC = () => {
-  const [searchQuery, setSearchQuery] = useState(localStorage.getItem('searchQuery') || '');
-  const searchValueRef = useRef('');
-
-  useEffect(() => {
-    searchValueRef.current = searchQuery;
-  }, [searchQuery]);
-
-  useEffect(() => {
-    return () => {
-      setLocalStorage(searchValueRef.current);
-    };
-  }, []);
-
-  const setLocalStorage = (value: string): void => {
-    localStorage.setItem('searchQuery', value);
+const SearchBar: FC<SearchBarProps> = ({ handleInputValue, searchMovies, searchQuery }) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Enter') {
+      searchMovies(searchQuery);
+    }
   };
 
   return (
-    <div className="search__container" data-testid="search-container">
-      <form>
+    <>
+      <div className="search__container" data-testid="search-container">
         <input
           className="search__input"
           type="search"
           name="searchValue"
           aria-label="search"
-          value={searchQuery}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+          onChange={handleInputValue}
+          onKeyDown={handleKeyPress}
+          placeholder="Enter movie..."
+          autoComplete="off"
         />
-        <button className="search__btn" type="submit" data-testid="search-btn">
-          Search
-        </button>
-      </form>
-    </div>
+        <button
+          className="search__btn"
+          type="submit"
+          data-testid="search-btn"
+          onClick={() => searchMovies(searchQuery)}
+        ></button>
+      </div>
+    </>
   );
 };
 

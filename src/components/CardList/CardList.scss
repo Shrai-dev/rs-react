@@ -1,0 +1,7 @@
+.cards__wrapper {
+  margin: 0 auto;
+  width: 1070px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
