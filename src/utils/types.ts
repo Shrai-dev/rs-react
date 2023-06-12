@@ -47,14 +47,24 @@ export interface MovieData {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  tagline: string;
+  runtime: number | undefined;
+  handleClick?: () => void;
 }
 
 export interface MoviesProps {
   movies: MovieData[];
+  handleModalClick?: () => void;
 }
 
 export interface SearchBarProps {
   handleInputValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
   searchMovies: (searchString: string) => Promise<MovieData[] | void>;
   searchQuery: string;
+}
+
+export interface PopupProps {
+  active: boolean;
+  setActive: (active: boolean) => void;
+  movieId: string;
 }
